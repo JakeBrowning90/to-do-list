@@ -1,3 +1,25 @@
-h1 {
-    color: blueviolet;
+html, body {
+    height: 100%;
+    width: 100%; 
+}
+
+#content {
+    height: inherit;
+    width: inherit;
+    background-color: whitesmoke;
+    padding: 10px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 10vh 1fr 5vh;
+    gap: 10px;
+}
+
+#content > * {
+    border: 1px solid darkblue;
+    background-color: lightblue;
+}
+
+.header, .footer {
+    grid-column: 1 / -1;
 }
