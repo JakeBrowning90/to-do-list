@@ -2,8 +2,25 @@ import './reset.css';
 import './style.css';
 import { createTask } from './createTask';
 import { taskList } from './taskFactory';
-//import { drawPageLayout } from './drawPageLayout';
+import { drawListView } from './drawListView';
+import { drawFormView } from './drawFormView';
+import { clearView } from './clearView';
 
+//Draw default screen on page load
+drawListView();
 console.log("Testing index.js");
 createTask();
-console.log(taskList)
+//console.log(taskList)
+
+const addTaskButton = document.getElementById('addTaskButton');
+addTaskButton.addEventListener("click", function () {
+    clearView();
+    drawFormView();
+});
+
+// const viewListButton = document.getElementById('viewListButton');
+// viewListButton.addEventListener("click", function () {
+//     clearView();
+//     drawListView();
+// });
+
