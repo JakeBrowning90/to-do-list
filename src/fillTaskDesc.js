@@ -2,6 +2,7 @@
 import { taskList } from "./taskFactory";
 import { clearView } from "./clearView";
 import { drawListView } from "./drawListView";
+import { drawFormView } from "./drawFormView";
 
 function fillTaskDesc(title, desc, indexPosition) {
     const taskDescColumn = document.querySelector('.taskDescColumn');
@@ -11,16 +12,20 @@ function fillTaskDesc(title, desc, indexPosition) {
     editTaskBtn.textContent = "Edit";
     editTaskBtn.addEventListener("click", function () {
         console.log("EDIT!");
+        clearView();
+        //TO-DO: New function with modified form view, delete old version from list ONLY if changes are approved
+        drawFormView(title, desc, indexPosition);
+        //taskList.splice(indexPosition, 1);
     });
 
     const deleteTaskBtn = document.createElement('button');
     deleteTaskBtn.textContent = "Delete";
     deleteTaskBtn.addEventListener("click", function () {
-        console.log("DELETE" + indexPosition);
+        //console.log("DELETE" + indexPosition);
         taskList.splice(indexPosition, 1);
-        console.log(taskList);
+        //console.log(taskList);
         clearView();
-        drawListView()
+        drawListView();
     });
     taskDescColumn.appendChild(editTaskBtn);
     taskDescColumn.appendChild(deleteTaskBtn);

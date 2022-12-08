@@ -1,9 +1,11 @@
 //TO-DO: Draw single div, form, with inputs for new task
 import { drawListView } from './drawListView';
 import { clearView } from './clearView';
-import { addTaskToList, Task } from './taskFactory';
+import { addTaskToList, Task, taskList } from './taskFactory';
 
-const drawFormView = () => {
+
+//TO-DO: Add condition to set value to blank if undefined
+const drawFormView = (title, desc, indexPosition) => {
     //console.log("Testing drawFormView");
     const content = document.querySelector('#content');
     const taskFormContent = document.createElement('form');
@@ -17,6 +19,9 @@ const drawFormView = () => {
     taskNameLabel.textContent = "Task name:";
     const taskNameField = document.createElement("input");
     taskNameField.setAttribute("required", "");
+    if (title != undefined) {
+        taskNameField.setAttribute("value", title);
+    }
     taskNameField.setAttribute("id", "taskName");
     taskNameField.setAttribute("name", "taskName");
 
@@ -27,10 +32,12 @@ const drawFormView = () => {
     taskDescLabel.textContent = "Description:";
     const taskDescField = document.createElement("input");
     taskDescField.setAttribute("required", "");
+    taskDescField.setAttribute("value", desc);
     taskDescField.setAttribute("id", "taskDesc");
     taskDescField.setAttribute("name", "taskDesc");
 
     // Add new task to list and return to list view
+    //TO-DO: remove old version if editing an existing task
     const submitNewTaskBtn = document.createElement('input');
     submitNewTaskBtn.setAttribute("type", "submit");
     submitNewTaskBtn.setAttribute("id", "addTask");
@@ -58,6 +65,7 @@ const drawFormView = () => {
     taskFormContent.addEventListener("submit", (event) => {
         event.preventDefault();
         let newTask = new Task (taskName.value, taskDesc.value);
+        taskList.splice(indexPosition, 1);
         addTaskToList(newTask);
         clearView();
         drawListView();
