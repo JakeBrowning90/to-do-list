@@ -19,8 +19,9 @@ const drawFormView = (title, desc, indexPosition) => {
     taskNameLabel.textContent = "Task name:";
     const taskNameField = document.createElement("input");
     taskNameField.setAttribute("required", "");
+    //TO-DO: Apply this condition to all inputs
     if (title != undefined) {
-        taskNameField.setAttribute("value", title);
+         taskNameField.setAttribute("value", title);
     }
     taskNameField.setAttribute("id", "taskName");
     taskNameField.setAttribute("name", "taskName");
