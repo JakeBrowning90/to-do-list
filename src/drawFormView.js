@@ -1,16 +1,12 @@
-//TO-DO: Draw single div, form, with inputs for new task
 import { drawListView } from './drawListView';
 import { clearView } from './clearView';
 import { addTaskToList, Task, taskList } from './taskFactory';
 
-
-//TO-DO: Add condition to set value to blank if undefined
-const drawFormView = (title, desc, indexPosition) => {
+const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, dueDate) => {
     //console.log("Testing drawFormView");
     const content = document.querySelector('#content');
     const taskFormContent = document.createElement('form');
     taskFormContent.classList.add('taskFormContent');
-   // taskFormContent.textContent = "Form for new task";
 
     const taskNameDiv = document.createElement("div");
     taskNameDiv.classList.add('formTextInput');
@@ -19,7 +15,6 @@ const drawFormView = (title, desc, indexPosition) => {
     taskNameLabel.textContent = "Task name:";
     const taskNameField = document.createElement("input");
     taskNameField.setAttribute("required", "");
-    //TO-DO: Apply this condition to all inputs
     if (title != undefined) {
          taskNameField.setAttribute("value", title);
     }
@@ -31,14 +26,82 @@ const drawFormView = (title, desc, indexPosition) => {
     const taskDescLabel = document.createElement("label");
     taskDescLabel.setAttribute("for", "taskDesc");
     taskDescLabel.textContent = "Description:";
-    const taskDescField = document.createElement("input");
+    const taskDescField = document.createElement("textarea");
     taskDescField.setAttribute("required", "");
-    taskDescField.setAttribute("value", desc);
+    if (desc != undefined) {
+        taskDescField.textContent = desc;
+    }
     taskDescField.setAttribute("id", "taskDesc");
     taskDescField.setAttribute("name", "taskDesc");
 
+    //Make a radio button instead?
+    const taskPriorityDiv = document.createElement("div");
+    taskPriorityDiv.classList.add('formTextInput');
+    const taskPriorityLabel = document.createElement("label");
+    taskPriorityLabel.setAttribute("for", "taskPriority");
+    taskPriorityLabel.textContent = "Priority:";
+    const taskPriorityField = document.createElement("select");
+
+    taskPriorityField.setAttribute("required", "");
+    if (priorityLevel != undefined) {
+        taskPriorityField.setAttribute("value", priorityLevel);
+    }
+    taskPriorityField.setAttribute("id", "taskPriority");
+    taskPriorityField.setAttribute("name", "taskPriority");
+
+    const essentialOption = document.createElement("option");
+    essentialOption.textContent= "Essential";
+    essentialOption.setAttribute('value', 'essential');
+    const normalOption = document.createElement("option");
+    normalOption.textContent= "Normal";
+    normalOption.setAttribute('value', 'Normal');
+
+    taskPriorityField.appendChild(normalOption);
+    taskPriorityField.appendChild(essentialOption);
+
+    const taskCategoryDiv = document.createElement("div");
+    taskCategoryDiv.classList.add('formTextInput');
+    const taskCategoryLabel = document.createElement("label");
+    taskCategoryLabel.setAttribute("for", "taskCategory");
+    taskCategoryLabel.textContent = "Category:";
+    const taskCategoryField = document.createElement("select");
+
+    const workOption = document.createElement("option");
+    workOption.textContent= "Work";
+    workOption.setAttribute('value', 'Work');
+    const schoolOption = document.createElement("option");
+    schoolOption.textContent= "School";
+    schoolOption.setAttribute('value', 'School');
+    const hobbyOption = document.createElement("option");
+    hobbyOption.textContent= "Hobby";
+    hobbyOption.setAttribute('value', 'Hobby');
+
+    taskCategoryField.appendChild(workOption);
+    taskCategoryField.appendChild(schoolOption);
+    taskCategoryField.appendChild(hobbyOption);
+
+    taskCategoryField.setAttribute("required", "");
+    if (taskCategory != undefined) {
+        taskCategoryField.setAttribute("value", taskCategory);
+    }
+    taskCategoryField.setAttribute("id", "category");
+    taskCategoryField.setAttribute("name", "category");
+
+    const dueDateDiv = document.createElement("div");
+    dueDateDiv.classList.add('formTextInput');
+    const dueDateLabel = document.createElement("label");
+    dueDateLabel.setAttribute("for", "dueDate");
+    dueDateLabel.textContent = "Due date:";
+    const dueDateField = document.createElement("input");
+    dueDateField.setAttribute("type", "date");
+    dueDateField.setAttribute("required", "");
+    if (dueDate != undefined) {
+        dueDateField.setAttribute("value", dueDate);
+    }
+    dueDateField.setAttribute("id", "dueDateInput");
+    dueDateField.setAttribute("name", "dueDateInput");
+
     // Add new task to list and return to list view
-    //TO-DO: remove old version if editing an existing task
     const submitNewTaskBtn = document.createElement('input');
     submitNewTaskBtn.setAttribute("type", "submit");
     submitNewTaskBtn.setAttribute("id", "addTask");
@@ -60,13 +123,27 @@ const drawFormView = (title, desc, indexPosition) => {
     taskDescDiv.appendChild(taskDescLabel);
     taskDescDiv.appendChild(taskDescField);
 
+    taskFormContent.appendChild(taskPriorityDiv);
+    taskPriorityDiv.appendChild(taskPriorityLabel);
+    taskPriorityDiv.appendChild(taskPriorityField);
+
+    taskFormContent.appendChild(taskCategoryDiv);
+    taskCategoryDiv.appendChild(taskCategoryLabel);
+    taskCategoryDiv.appendChild(taskCategoryField);
+
+    taskFormContent.appendChild(dueDateDiv);
+    dueDateDiv.appendChild(dueDateLabel);
+    dueDateDiv.appendChild(dueDateField);
+
     taskFormContent.appendChild(cancelNewTaskBtn);
     taskFormContent.appendChild(submitNewTaskBtn);
     //TODO: move this to createTask module
     taskFormContent.addEventListener("submit", (event) => {
         event.preventDefault();
-        let newTask = new Task (taskName.value, taskDesc.value);
-        taskList.splice(indexPosition, 1);
+        let newTask = new Task (taskName.value, taskDesc.value, taskPriority.value, category.value, dueDateInput.value);
+        if (indexPosition != null) {
+            taskList.splice(indexPosition, 1);
+        }
         addTaskToList(newTask);
         clearView();
         drawListView();

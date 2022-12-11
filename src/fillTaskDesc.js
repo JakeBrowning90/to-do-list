@@ -4,9 +4,9 @@ import { clearView } from "./clearView";
 import { drawListView } from "./drawListView";
 import { drawFormView } from "./drawFormView";
 
-function fillTaskDesc(title, desc, indexPosition) {
+function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     const taskDescColumn = document.querySelector('.taskDescColumn');
-    taskDescColumn.textContent = title + ": "+ desc;
+    taskDescColumn.textContent = title + ": "+ desc + priority + category + dueDate;
 
     const editTaskBtn = document.createElement('button');
     editTaskBtn.textContent = "Edit";
