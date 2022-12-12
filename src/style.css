@@ -50,3 +50,37 @@ body {
 .listViewContent > * {
     background-color: grey;
 }
+
+.taskDescColumn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50px 25px 1fr 25px;
+}
+
+.taskDetailName {
+    grid-column: 1 / -1;
+}
+
+.taskDetailCategory {
+    
+}
+
+.taskDetailPriority {
+    
+}
+
+.taskDetailDueDate{
+    
+}
+
+.taskDetailDescription {
+    grid-column: 1 / -1;
+}
+
+.editTaskBtn {
+    grid-column: 2 / -2;
+}
+
+.deleteTaskBtn {
+    grid-column: -1 / -2
+}
