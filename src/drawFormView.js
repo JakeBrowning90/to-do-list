@@ -69,15 +69,15 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     const workOption = document.createElement("option");
     workOption.textContent= "Work";
     workOption.setAttribute('value', 'Work');
-    const schoolOption = document.createElement("option");
-    schoolOption.textContent= "School";
-    schoolOption.setAttribute('value', 'School');
+    const houseOption = document.createElement("option");
+    houseOption.textContent= "House";
+    houseOption.setAttribute('value', 'House');
     const hobbyOption = document.createElement("option");
     hobbyOption.textContent= "Hobby";
     hobbyOption.setAttribute('value', 'Hobby');
 
     taskCategoryField.appendChild(workOption);
-    taskCategoryField.appendChild(schoolOption);
+    taskCategoryField.appendChild(houseOption);
     taskCategoryField.appendChild(hobbyOption);
 
     taskCategoryField.setAttribute("required", "");
@@ -140,7 +140,7 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     //TODO: move this to createTask module
     taskFormContent.addEventListener("submit", (event) => {
         event.preventDefault();
-        let newTask = new Task (taskName.value, taskDesc.value, taskPriority.value, category.value, dueDateInput.value);
+        let newTask = new Task (taskName.value, taskDesc.value,dueDateInput.value, taskPriority.value, category.value);
         if (indexPosition != null) {
             taskList.splice(indexPosition, 1);
         }

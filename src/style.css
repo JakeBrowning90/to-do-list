@@ -42,9 +42,34 @@ body {
     gap: 10px;
 }
 
+.taskCategoryTabs{
+    border-bottom: solid black 1px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .taskRow {
-    background-color: greenyellow;
-    border: solid black 1px;
+    /* background-color: greenyellow; */
+    border-bottom: solid black 1px;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-rows: 40px 20px;
+}
+
+.taskRowName {
+    grid-column: 1 / 2;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.taskRowDate {
+    grid-column: 1 / 2;   
+}
+
+.taskRowSelectMark {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+    background-color: yellow;
 }
 
 .listViewContent > * {
@@ -59,22 +84,26 @@ body {
 
 .taskDetailName {
     grid-column: 1 / -1;
+    border-bottom: solid black 1px;
+    font-weight: bold;
+    font-size: 1.3em;
 }
 
 .taskDetailCategory {
-    
+    grid-column: 1 / 2;
 }
 
 .taskDetailPriority {
-    
+    grid-column: 2 / 3;
 }
 
 .taskDetailDueDate{
-    
+    grid-column: 3 / 4;
 }
 
 .taskDetailDescription {
     grid-column: 1 / -1;
+    border-bottom: solid black 1px;
 }
 
 .editTaskBtn {
@@ -83,4 +112,10 @@ body {
 
 .deleteTaskBtn {
     grid-column: -1 / -2
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
