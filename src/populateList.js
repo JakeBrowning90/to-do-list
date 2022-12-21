@@ -1,3 +1,5 @@
+// Reads array of tasks and creates a div for each one
+
 import { taskList } from "./taskFactory";
 import { fillTaskDesc } from "./fillTaskDesc";
 
@@ -7,7 +9,7 @@ function populateList(category) {
     while (displayedTasks.firstChild) {
         displayedTasks.removeChild(displayedTasks.lastChild);
     }
-    
+    // Gets all tasks 
     if (category == null) {
         for (const task in taskList) {
             let taskRow = document.createElement('div');
@@ -28,12 +30,13 @@ function populateList(category) {
 
             taskRow.addEventListener("click", function () {
                 fillTaskDesc(taskList[task].title, taskList[task].description, taskList[task].priorityLevel, taskList[task].taskCategory, taskList[task].dueDate, task);
+                //TODO: function to change class of taskRowSelectMark, make current row YELLOW
             });
             
             displayedTasks.appendChild(taskRow);
         } 
     }
-
+    // Gets only tasks in chosen category
     else {
         for (const task in taskList) {
                 if (taskList[task].taskCategory == category) {

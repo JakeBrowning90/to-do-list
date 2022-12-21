@@ -1,4 +1,4 @@
-//TO-DO: fill taskDesc column with task details, edit button, and delete button
+//Populates taskDesc column with task details, edit button, and delete button
 import { taskList } from "./taskFactory";
 import { clearView } from "./clearView";
 import { drawListView } from "./drawListView";
@@ -27,20 +27,17 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     editTaskBtn.classList.add('editTaskBtn');
     editTaskBtn.textContent = "Edit";
     editTaskBtn.addEventListener("click", function () {
-        //console.log("EDIT!");
+        //Brings up "New task form" populated with current task details and position to override old version on submission
         clearView();
-        //TO-DO: New function with modified form view, delete old version from list ONLY if changes are approved
         drawFormView(title, desc, indexPosition);
-        //taskList.splice(indexPosition, 1);
     });
 
     const deleteTaskBtn = document.createElement('button');
     deleteTaskBtn.classList.add('deleteTaskBtn');
     deleteTaskBtn.textContent = "Delete";
     deleteTaskBtn.addEventListener("click", function () {
-        //console.log("DELETE" + indexPosition);
+        // Removes current task from array and redraws list view
         taskList.splice(indexPosition, 1);
-        //console.log(taskList);
         clearView();
         drawListView();
     });
@@ -54,9 +51,3 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
 }
 
 export { fillTaskDesc };
-
-// function removeBook(libraryPosition) {
-//     library.splice(libraryPosition, libraryPosition + 1);
-//     refreshPage();
-//     printLibrary();
-// }

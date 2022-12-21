@@ -1,6 +1,5 @@
 import './reset.css';
 import './style.css';
-import { createTask } from './createTask';
 import { taskList } from './taskFactory';
 import { drawListView } from './drawListView';
 import { drawFormView } from './drawFormView';
@@ -9,7 +8,6 @@ import { clearView } from './clearView';
 //Draw default screen on page load
 drawListView();
 console.log("Testing index.js");
-createTask();
 //console.log(taskList)
 
 const addTaskButton = document.getElementById('addTaskButton');

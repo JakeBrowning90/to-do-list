@@ -3,13 +3,12 @@ import { clearView } from './clearView';
 import { addTaskToList, Task, taskList } from './taskFactory';
 
 const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, dueDate) => {
-    //console.log("Testing drawFormView");
     const content = document.querySelector('#content');
     const taskFormContent = document.createElement('form');
     taskFormContent.classList.add('taskFormContent');
 
     const taskNameDiv = document.createElement("div");
-    taskNameDiv.classList.add('formTextInput');
+    taskNameDiv.classList.add('formTextInput', 'taskNameDiv');
     const taskNameLabel = document.createElement("label");
     taskNameLabel.setAttribute("for", "taskName");
     taskNameLabel.textContent = "Task name:";
@@ -22,7 +21,7 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     taskNameField.setAttribute("name", "taskName");
 
     const taskDescDiv = document.createElement("div");
-    taskDescDiv.classList.add('formTextInput');
+    taskDescDiv.classList.add('formTextInput', 'taskDescDiv');
     const taskDescLabel = document.createElement("label");
     taskDescLabel.setAttribute("for", "taskDesc");
     taskDescLabel.textContent = "Description:";
@@ -36,7 +35,7 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
 
     //Make a radio button instead?
     const taskPriorityDiv = document.createElement("div");
-    taskPriorityDiv.classList.add('formTextInput');
+    taskPriorityDiv.classList.add('formTextInput', 'taskPriorityDiv');
     const taskPriorityLabel = document.createElement("label");
     taskPriorityLabel.setAttribute("for", "taskPriority");
     taskPriorityLabel.textContent = "Priority:";
@@ -60,7 +59,7 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     taskPriorityField.appendChild(essentialOption);
 
     const taskCategoryDiv = document.createElement("div");
-    taskCategoryDiv.classList.add('formTextInput');
+    taskCategoryDiv.classList.add('formTextInput', 'taskCategoryDiv');
     const taskCategoryLabel = document.createElement("label");
     taskCategoryLabel.setAttribute("for", "taskCategory");
     taskCategoryLabel.textContent = "Category:";
@@ -88,7 +87,7 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     taskCategoryField.setAttribute("name", "category");
 
     const dueDateDiv = document.createElement("div");
-    dueDateDiv.classList.add('formTextInput');
+    dueDateDiv.classList.add('formTextInput', 'dueDateDiv');
     const dueDateLabel = document.createElement("label");
     dueDateLabel.setAttribute("for", "dueDate");
     dueDateLabel.textContent = "Due date:";
@@ -109,6 +108,7 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     
     // Cancel new task creation and return to list view
     const cancelNewTaskBtn = document.createElement('button');
+    cancelNewTaskBtn.classList.add('cancelNewTaskBtn');
     cancelNewTaskBtn.textContent = "Cancel";
     cancelNewTaskBtn.addEventListener("click", function () {
         clearView();
@@ -119,24 +119,26 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     taskNameDiv.appendChild(taskNameLabel);
     taskNameDiv.appendChild(taskNameField);
 
-    taskFormContent.appendChild(taskDescDiv);
-    taskDescDiv.appendChild(taskDescLabel);
-    taskDescDiv.appendChild(taskDescField);
+    taskFormContent.appendChild(taskCategoryDiv);
+    taskCategoryDiv.appendChild(taskCategoryLabel);
+    taskCategoryDiv.appendChild(taskCategoryField);
 
     taskFormContent.appendChild(taskPriorityDiv);
     taskPriorityDiv.appendChild(taskPriorityLabel);
     taskPriorityDiv.appendChild(taskPriorityField);
 
-    taskFormContent.appendChild(taskCategoryDiv);
-    taskCategoryDiv.appendChild(taskCategoryLabel);
-    taskCategoryDiv.appendChild(taskCategoryField);
-
     taskFormContent.appendChild(dueDateDiv);
     dueDateDiv.appendChild(dueDateLabel);
     dueDateDiv.appendChild(dueDateField);
 
-    taskFormContent.appendChild(cancelNewTaskBtn);
-    taskFormContent.appendChild(submitNewTaskBtn);
+    taskFormContent.appendChild(taskDescDiv);
+    taskDescDiv.appendChild(taskDescLabel);
+    taskDescDiv.appendChild(taskDescField);
+    const formButtonDiv = document.createElement('div');
+    formButtonDiv.classList.add('formButtonDiv');
+    taskFormContent.appendChild(formButtonDiv);
+    formButtonDiv.appendChild(cancelNewTaskBtn);
+    formButtonDiv.appendChild(submitNewTaskBtn);
     //TODO: move this to createTask module
     taskFormContent.addEventListener("submit", (event) => {
         event.preventDefault();
