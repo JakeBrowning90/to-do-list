@@ -6,7 +6,9 @@ let taskList = [
     {"title": "Bake cake", "description": "Chocolate cake for Flint's birthday", "dueDate": "12 May 2023", "priorityLevel": "Essential", "taskCategory": "Hobby"},
     {"title": "Reply to Discord event", "description": "Mario Kart game night", "dueDate": "12 May 2023", "priorityLevel": "Normal", "taskCategory": "Hobby"},
     {"title": "Practice German", "description": "Start new Anki deck", "dueDate": "11 December 2022", "priorityLevel": "Normal", "taskCategory": "Work"},
-    {"title": "Complete JavaScript exercise", "description": "Clone github repo", "dueDate": "22 December 2022", "priorityLevel": "Essential", "taskCategory": "Work"}
+    {"title": "Complete JavaScript exercise", "description": "Clone github repo", "dueDate": "22 December 2022", "priorityLevel": "Essential", "taskCategory": "Work"},
+    {"title": "Make dentist appointment", "description": "Get morning timeslot", "dueDate": "22 December 2022", "priorityLevel": "Normal", "taskCategory": "Hobby"},
+    {"title": "Shop for gift", "description": "Charity shops", "dueDate": "22 December 2022", "priorityLevel": "Normal", "taskCategory": "House"}
 ];
 
 //TODO: add taskCategory, dueDate, priorityLevel, completionStatus back after testing
