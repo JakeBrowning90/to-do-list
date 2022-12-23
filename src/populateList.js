@@ -15,25 +15,35 @@ function populateList(category) {
             let taskRow = document.createElement('div');
             taskRow.classList.add('taskRow');
 
+            let taskRadioSpan = document.createElement('label');
             let taskRowName = document.createElement('div');
             taskRowName.classList.add('taskRowName');
             let taskRowDate = document.createElement('div');
             taskRowDate.classList.add('taskRowDate');
             let taskRowSelectMark = document.createElement('div');
-            taskRowSelectMark.classList.add('taskRowSelectMark');
+            taskRowSelectMark.classList.add('taskRowDefaultMark');
+            let selectionRadio = document.createElement('input');
+            selectionRadio.setAttribute('type', 'radio');
+            selectionRadio.setAttribute('name', 'currentSelection');
 
             taskRowName.textContent = taskList[task].title;
             taskRowDate.textContent = taskList[task].dueDate;
             taskRow.appendChild(taskRowName);
             taskRow.appendChild(taskRowDate);
             taskRow.appendChild(taskRowSelectMark);
+            taskRowSelectMark.appendChild(selectionRadio);
 
             taskRow.addEventListener("click", function () {
                 fillTaskDesc(taskList[task].title, taskList[task].description, taskList[task].priorityLevel, taskList[task].taskCategory, taskList[task].dueDate, task);
                 //TODO: function to change class of taskRowSelectMark, make current row YELLOW
+                // let unselectedTasks = document.querySelectorAll('taskRowDefaultMark');
+                // console.log(unselectedTasks);
+                // unselectedTasks.classList.remove('taskRowCurrentMark');
+                // taskRowSelectMark.classList.add('taskRowCurrentMark');
             });
             
-            displayedTasks.appendChild(taskRow);
+            taskRadioSpan.appendChild(taskRow);
+            displayedTasks.appendChild(taskRadioSpan);
         } 
     }
     // Gets only tasks in chosen category
@@ -43,23 +53,30 @@ function populateList(category) {
                 let taskRow = document.createElement('div');
                 taskRow.classList.add('taskRow');
                 
+                let taskRadioSpan = document.createElement('label');
                 let taskRowName = document.createElement('div');
                 taskRowName.classList.add('taskRowName');
                 let taskRowDate = document.createElement('div');
                 taskRowDate.classList.add('taskRowDate');
                 let taskRowSelectMark = document.createElement('div');
-                taskRowSelectMark.classList.add('taskRowSelectMark');
+                taskRowSelectMark.classList.add('taskRowDefaultMark');
+                let selectionRadio = document.createElement('input');
+                selectionRadio.setAttribute('type', 'radio');
+                selectionRadio.setAttribute('name', 'currentSelection');
 
                 taskRowName.textContent = taskList[task].title;
                 taskRowDate.textContent = taskList[task].dueDate;
                 taskRow.appendChild(taskRowName);
                 taskRow.appendChild(taskRowDate);
                 taskRow.appendChild(taskRowSelectMark);
+                taskRowSelectMark.appendChild(selectionRadio);
 
                 taskRow.addEventListener("click", function () {
                     fillTaskDesc(taskList[task].title, taskList[task].description, taskList[task].priorityLevel, taskList[task].taskCategory, taskList[task].dueDate, task);
                 });
-                displayedTasks.appendChild(taskRow);
+
+                taskRadioSpan.appendChild(taskRow);
+                displayedTasks.appendChild(taskRadioSpan);
             }
         } 
     }

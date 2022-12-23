@@ -1,6 +1,6 @@
 :root {
     --dark: rgba(0, 0, 0, 0.5);
-    --light: rgba(0, 0, 0, 0.3);
+    --light: rgba(0, 0, 0, 0.4);
   }
 
 html, body, #pauseScreen {
@@ -113,10 +113,15 @@ h1 {
 .taskRow {
     /* background-color: greenyellow; */
     box-sizing: border-box;
-    border-bottom: solid black 1px;
+    border: solid black 2px;
     display: grid;
     grid-template-columns: 1fr 30px;
     grid-template-rows: 40px 20px;
+}
+
+.taskRow:hover {
+    box-sizing: border-box;
+    border: solid white 2px;
 }
 
 .taskRowName {
@@ -129,7 +134,13 @@ h1 {
     grid-column: 1 / 2;   
 }
 
-.taskRowSelectMark {
+.taskRowDefaultMark {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+    background-color: grey;
+}
+
+.taskRowCurrentMark {
     grid-column: 2 / -1;
     grid-row: 1 / -1;
     background-color: yellow;
