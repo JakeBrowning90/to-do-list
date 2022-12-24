@@ -2,6 +2,7 @@
 
 import { taskList } from "./taskFactory";
 import { fillTaskDesc } from "./fillTaskDesc";
+import { format } from 'date-fns';
 
 function populateList(category) {
     const displayedTasks = document.querySelector('.displayedTasks');
@@ -27,7 +28,9 @@ function populateList(category) {
             selectionRadio.setAttribute('name', 'currentSelection');
 
             taskRowName.textContent = taskList[task].title;
+            // format(new Date(2014, 1, 11), 'MM/dd/yyyy')
             taskRowDate.textContent = taskList[task].dueDate;
+            // taskRowDate.textContent = format((taskList[task].dueDate), 'dd MMM YYYY');
             taskRow.appendChild(taskRowName);
             taskRow.appendChild(taskRowDate);
             taskRow.appendChild(taskRowSelectMark);

@@ -10,6 +10,7 @@
 
 html, body, #pauseScreen {
     font-family: Rodin;
+    font-style: italic;
     height: 100vh;
     width: 100vw; 
 }
@@ -88,26 +89,27 @@ h1 {
 }
 
 .listViewContent > * {
-    background-color: var(--dark);
     box-sizing: border-box;
-    /* height: 100%;
-    max-height: 100%; */
     overflow: hidden;
 }
 
 .taskListColumn {
     height: 100%;
     max-height: 100%;
+    gap: 5px;
     display: flex;
     flex-direction: column;
 }
 
 .taskCategoryTabs{
-    height: 5%;
-    max-height: 5%;
+    box-sizing: border-box;
+    height: 12.5%;
+    max-height: 12.5%;
+    width: 75%;
     border-bottom: solid black 1px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    align-self: center;
 }
 
 .displayedTasks {
@@ -116,16 +118,19 @@ h1 {
     flex-direction: column;
     height: 1fr;
     max-height: 1fr;
+    gap: 4px;
     overflow: scroll;
 }
 
 .taskRow {
     /* background-color: greenyellow; */
+    background-color: var(--dark);
     box-sizing: border-box;
-    border: solid black 2px;
+    border: solid var(--light) 2px;
     display: grid;
     grid-template-columns: 1fr 30px;
     grid-template-rows: 40px 20px;
+    padding-left: 10px;
 }
 
 .taskRow:hover {
@@ -137,25 +142,35 @@ h1 {
     grid-column: 1 / 2;
     font-weight: bold;
     font-size: 1.1em;
+    margin: auto 0px;
 }
 
 .taskRowDate {
     grid-column: 1 / 2;   
+    color: yellow;
+    margin: auto 0px;
 }
 
 .taskRowDefaultMark {
     grid-column: 2 / -1;
     grid-row: 1 / -1;
-    background-color: grey;
+    background-color: rgba(88, 88, 88, 0.533);
     display: flex;
     align-content: center;
     justify-content: center;
 }
 
 .taskDescColumn {
+    background-color: var(--dark);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 50px 25px 1fr 25px; 
+    padding: 0 10px 10px 10px;
+}
+
+.taskDetailName, .taskDetailCategory,  .taskDetailPriority, .taskDetailDueDate {
+    display: flex;
+    align-items: center;
 }
 
 .taskDetailName {
@@ -175,11 +190,13 @@ h1 {
 
 .taskDetailDueDate{
     grid-column: 3 / 4;
+    color: yellow;
 }
 
 .taskDetailDescription {
     grid-column: 1 / -1;
-    border-bottom: solid black 1px;
+    border-bottom: solid var(--light) 1px;
+    padding-top: 10px;
 }
 
 .editTaskBtn {
