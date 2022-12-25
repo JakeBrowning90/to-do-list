@@ -29,7 +29,7 @@ function populateList(category) {
 
             taskRowName.textContent = taskList[task].title;
             //Testing date-fns
-            console.log(format(new Date(taskList[task].dueDate), 'PP'));
+            // console.log(format(new Date(taskList[task].dueDate), 'PP'));
 
             //OLD WAY: taskRowDate.textContent = taskList[task].dueDate;
             taskRowDate.textContent = format(new Date(taskList[task].dueDate), 'PP');

@@ -7,7 +7,13 @@ import { format } from 'date-fns';
 
 function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     const taskDescColumn = document.querySelector('.taskDescColumn');
-    taskDescColumn.textContent = null;
+
+    //Clear placeholder text
+    while (taskDescColumn.firstChild) {
+        taskDescColumn.removeChild(taskDescColumn.lastChild);
+    }
+
+    //taskDescColumn.textContent = null;
     const taskDetailName = document.createElement('div');
     taskDetailName.classList.add('taskDetailName');
     taskDetailName.textContent = title;

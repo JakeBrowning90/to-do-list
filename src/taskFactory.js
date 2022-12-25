@@ -1,5 +1,3 @@
-//TO-DO: 
-
 let taskList = [
     {"title": "Walk dog", "description": "Take Loki to play at the beach", "dueDate": "1 January 2023", "priorityLevel": "Normal", "taskCategory": "House"},
     {"title": "Make valentine's gifts", "description": "Tools in garage", "dueDate": "14 February 2023", "priorityLevel": "Essential", "taskCategory": "House"},
@@ -11,7 +9,7 @@ let taskList = [
     {"title": "Shop for gift", "description": "Charity shops", "dueDate": "2 December 2023", "priorityLevel": "Normal", "taskCategory": "House"}
 ];
 
-//TODO: add taskCategory, dueDate, priorityLevel, completionStatus back after testing
+//TODO: completion status?
 class Task {
     constructor(title, description, dueDate, priorityLevel, taskCategory) {
         this.title = title;

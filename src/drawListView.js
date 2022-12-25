@@ -47,7 +47,9 @@ const drawListView = () => {
     const taskDescColumn = document.createElement('div');
     taskDescColumn.classList.add('taskDescColumn');
     //TODO - Style text content in it's own div (maybe change class of taskDescColumn?)
-    taskDescColumn.textContent = "Select a task to display details and options";
+    const blankDescPlaceholder = document.createElement('div');
+    blankDescPlaceholder.classList.add('blankDescPlaceholder');
+    blankDescPlaceholder.textContent = "Select a task to display details and options";
 
     content.appendChild(listViewContent);
     listViewContent.appendChild(taskListColumn);
@@ -58,6 +60,7 @@ const drawListView = () => {
     taskCategoryTabs.appendChild(workTab);
     taskCategoryTabs.appendChild(hobbyTab);
     listViewContent.appendChild(taskDescColumn);
+    taskDescColumn.appendChild(blankDescPlaceholder);
     
     populateList();
 }

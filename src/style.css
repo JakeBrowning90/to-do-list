@@ -187,6 +187,10 @@ button, input, select {
     padding: 10px;
 }
 
+.blankDescPlaceholder {
+    grid-column: 1 / -1;
+}
+
 .taskDetailName, .taskDetailCategory,  .taskDetailPriority, .taskDetailDueDate {
     display: flex;
     align-items: center;

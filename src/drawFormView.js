@@ -34,7 +34,6 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     taskDescField.setAttribute("id", "taskDesc");
     taskDescField.setAttribute("name", "taskDesc");
 
-    //Make a radio button instead?
     const taskPriorityDiv = document.createElement("div");
     taskPriorityDiv.classList.add('formTextInput', 'taskPriorityDiv');
     const taskPriorityLabel = document.createElement("label");
