@@ -3,6 +3,7 @@ import { taskList } from "./taskFactory";
 import { clearView } from "./clearView";
 import { drawListView } from "./drawListView";
 import { drawFormView } from "./drawFormView";
+import { format } from 'date-fns';
 
 function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     const taskDescColumn = document.querySelector('.taskDescColumn');
@@ -16,9 +17,12 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     const taskDetailPriority = document.createElement('div');
     taskDetailPriority.classList.add('taskDetailPriority');
     taskDetailPriority.textContent = priority;
+
     const taskDetailDueDate = document.createElement('div');
     taskDetailDueDate.classList.add('taskDetailDueDate');
-    taskDetailDueDate.textContent = dueDate;
+    //OLD Way: taskDetailDueDate.textContent = dueDate;
+    taskDetailDueDate.textContent = format(new Date(dueDate), 'PP')
+    
     const taskDetailDescription = document.createElement('div');
     taskDetailDescription.classList.add('taskDetailDescription');
     taskDetailDescription.textContent = desc;

@@ -7,8 +7,6 @@ import { clearView } from './clearView';
 
 //Draw default screen on page load
 drawListView();
-console.log("Testing index.js");
-//console.log(taskList)
 
 const addTaskButton = document.getElementById('addTaskButton');
 addTaskButton.addEventListener("click", function () {

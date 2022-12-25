@@ -6,7 +6,7 @@
 @font-face {
     font-family: Rodin;
     src: url(fot-rodin-pro-cufonfonts/FOTRodin\ Pro\ M.otf);
-  }
+}
 
 html, body, #pauseScreen {
     font-family: Rodin;
@@ -21,6 +21,11 @@ body {
     background-repeat: no-repeat;
     color: white;
     accent-color: yellow;
+}
+
+#addTaskButton {
+    font-weight: bold;
+    font-style: italic;
 }
 
 #pauseScreen {
@@ -40,6 +45,15 @@ h1 {
     font-size: 2em;
 }
 
+button, input, select {
+    font-family: Rodin;
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
 #header, #footer {
     background-color: var(--dark);
     grid-column: 1 / -1;
@@ -49,8 +63,9 @@ h1 {
 #header {
     grid-row: 1 / 2;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     font-style: italic;
     font-weight: bold;
 }
@@ -133,6 +148,10 @@ h1 {
     padding-left: 10px;
 }
 
+.taskRow > * {
+    overflow-inline: hidden;
+}
+
 .taskRow:hover {
     box-sizing: border-box;
     border: solid white 2px;
@@ -163,19 +182,20 @@ h1 {
 .taskDescColumn {
     background-color: var(--dark);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 50px 25px 1fr 25px; 
-    padding: 0 10px 10px 10px;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 2fr 1fr 15fr 1fr; 
+    padding: 10px;
 }
 
 .taskDetailName, .taskDetailCategory,  .taskDetailPriority, .taskDetailDueDate {
     display: flex;
     align-items: center;
+    overflow: scroll;
 }
 
 .taskDetailName {
     grid-column: 1 / -1;
-    border-bottom: solid black 1px;
+    border-bottom: solid var(--light) 2px;
     font-weight: bold;
     font-size: 1.3em;
 }
@@ -195,8 +215,9 @@ h1 {
 
 .taskDetailDescription {
     grid-column: 1 / -1;
-    border-bottom: solid var(--light) 1px;
+    border-bottom: solid var(--light) 2px;
     padding-top: 10px;
+    overflow: scroll
 }
 
 .editTaskBtn {
@@ -204,6 +225,7 @@ h1 {
 }
 
 .deleteTaskBtn {
+    width: 50%;
     grid-column: -1 / -2
 }
 
@@ -212,7 +234,7 @@ h1 {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr 3fr 20px;
+    grid-template-rows: 1fr 1fr 3fr .5fr;
     gap: 5px;
     background-color: var(--dark);
 }

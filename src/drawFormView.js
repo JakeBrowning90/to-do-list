@@ -1,6 +1,7 @@
 import { drawListView } from './drawListView';
 import { clearView } from './clearView';
 import { addTaskToList, Task, taskList } from './taskFactory';
+import { format } from 'date-fns';
 
 const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, dueDate) => {
     const content = document.querySelector('#content');
@@ -142,7 +143,8 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
     //TODO: move this to createTask module
     taskFormContent.addEventListener("submit", (event) => {
         event.preventDefault();
-        let newTask = new Task (taskName.value, taskDesc.value,dueDateInput.value, taskPriority.value, category.value);
+        let formattedDate = format(new Date(`${dueDateInput.value}T00:00`), 'PP');
+        let newTask = new Task (taskName.value, taskDesc.value, formattedDate, taskPriorityField.value, category.value);
         if (indexPosition != null) {
             taskList.splice(indexPosition, 1);
         }

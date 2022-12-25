@@ -28,9 +28,12 @@ function populateList(category) {
             selectionRadio.setAttribute('name', 'currentSelection');
 
             taskRowName.textContent = taskList[task].title;
-            // format(new Date(2014, 1, 11), 'MM/dd/yyyy')
-            taskRowDate.textContent = taskList[task].dueDate;
-            // taskRowDate.textContent = format((taskList[task].dueDate), 'dd MMM YYYY');
+            //Testing date-fns
+            console.log(format(new Date(taskList[task].dueDate), 'PP'));
+
+            //OLD WAY: taskRowDate.textContent = taskList[task].dueDate;
+            taskRowDate.textContent = format(new Date(taskList[task].dueDate), 'PP');
+
             taskRow.appendChild(taskRowName);
             taskRow.appendChild(taskRowDate);
             taskRow.appendChild(taskRowSelectMark);
