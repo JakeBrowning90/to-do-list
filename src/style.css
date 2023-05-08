@@ -16,9 +16,9 @@ html, body, #pauseScreen {
 }
 
 body {
-    background-image: url(iceland_bg.jpg);
+    /* background-image: url(iceland_bg.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     color: white;
     accent-color: yellow;
 }
@@ -194,7 +194,7 @@ button, input, select {
 .taskDetailName, .taskDetailCategory,  .taskDetailPriority, .taskDetailDueDate {
     display: flex;
     align-items: center;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .taskDetailName {
