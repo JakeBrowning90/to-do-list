@@ -1,17 +1,18 @@
 // Reads array of tasks and creates a div for each one
 
-import { taskList, checkStorage } from "./taskFactory";
+import { checkStorage } from "./taskFactory";
 import { fillTaskDesc } from "./fillTaskDesc";
 import { format } from 'date-fns';
 
+//Fill list view using taskList Array
 function populateList(category) {
     const displayedTasks = document.querySelector('.displayedTasks');
 
     while (displayedTasks.firstChild) {
         displayedTasks.removeChild(displayedTasks.lastChild);
     }
-
-    taskList = checkStorage();
+    //Get current taskList from localStorage
+    let taskList = checkStorage();
 
         // Gets all tasks 
         if (category == null) {
@@ -89,7 +90,6 @@ function populateList(category) {
                 }
             } 
         }
-       
 }
 
 export { populateList };
