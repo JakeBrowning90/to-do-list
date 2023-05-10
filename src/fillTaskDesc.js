@@ -1,11 +1,11 @@
 //Populates taskDesc column with task details, edit button, and delete button
-import { taskList, updateStorage } from "./taskFactory";
+import { taskList, updateStorage, toDate, deleteTask } from "./taskFactory";
 import { clearView } from "./clearView";
 import { drawListView } from "./drawListView";
 import { drawFormView } from "./drawFormView";
 import { format } from 'date-fns';
 
-function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
+function fillTaskDesc(title, desc, priority, category, dueDate) {
     const taskDescColumn = document.querySelector('.taskDescColumn');
 
     //Clear placeholder text
@@ -39,7 +39,7 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     editTaskBtn.addEventListener("click", function () {
         //Brings up "New task form" populated with current task details and position to override old version on submission
         clearView();
-        drawFormView(title, desc, indexPosition);
+        drawFormView(title, desc);
     });
 
     const deleteTaskBtn = document.createElement('button');
@@ -48,8 +48,9 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     deleteTaskBtn.addEventListener("click", function () {
         // Removes current task from array and redraws list view
         console.log("removed!")
-        taskList.splice(indexPosition, 1);
-        updateStorage();
+        deleteTask(title);
+        // taskList.splice(indexPosition, 1);
+        // updateStorage();
         clearView();
         drawListView();
     });

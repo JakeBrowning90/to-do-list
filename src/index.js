@@ -4,6 +4,22 @@ import { drawListView } from './drawListView';
 import { drawFormView } from './drawFormView';
 import { clearView } from './clearView';
 
+// import { initializeApp } from 'firebase/app';
+// import { getFirestore } from 'firebase/firestore';
+
+// const firebaseApp = initializeApp({
+//   apiKey: "AIzaSyCHxTqQvnTAjl5ooscMWvpQah6OHCMCXJ4",
+//   authDomain: "to-do-list-953be.firebaseapp.com",
+//   projectId: "to-do-list-953be",
+//   storageBucket: "to-do-list-953be.appspot.com",
+//   messagingSenderId: "42011707913",
+//   appId: "1:42011707913:web:1d400cc3a58e78372d86d8",
+//   measurementId: "G-1B2229JLQY"
+// });
+
+// const db = getFirestore(firebaseApp)
+
+
 // localStorage Test
 function storageAvailable(type) {
   let storage;
@@ -37,6 +53,8 @@ if (storageAvailable("localStorage")) {
 } else {
   // console.log('No localStorage for us')
 }
+
+
   
 //Draw default screen on page load
 drawListView();

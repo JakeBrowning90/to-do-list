@@ -1,7 +1,7 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "I worked on this project over about 3 weeks, during which time I took a break for holiday travel. This meant coming back to my code after some time away and having to reorient myself! Fortunately, I was able to read through my previous work and use some comments to get back on track.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,5 +26,6 @@
   "dependencies": {
     "date-fns": "^2.29.3",
     "firebase": "^9.21.0"
-  }
+  },
+  "keywords": []
 }

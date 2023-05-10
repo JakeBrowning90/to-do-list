@@ -1,9 +1,13 @@
 import { drawListView } from './drawListView';
 import { clearView } from './clearView';
-import { addTaskToList, Task, taskList } from './taskFactory';
+import { addTaskToList, Task, getTasks, db,setDoc, doc } from './taskFactory';
 import { format } from 'date-fns';
 
-const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, dueDate) => {
+async function drawFormView(title, desc, indexPosition, priorityLevel, taskCategory, dueDate) {
+
+    let taskList = await getTasks(db);
+    let docKey = title;
+
     const content = document.querySelector('#content');
     const taskFormContent = document.createElement('form');
     taskFormContent.classList.add('taskFormContent');
@@ -50,7 +54,7 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
 
     const essentialOption = document.createElement("option");
     essentialOption.textContent= "Essential";
-    essentialOption.setAttribute('value', 'essential');
+    essentialOption.setAttribute('value', 'Essential');
     const normalOption = document.createElement("option");
     normalOption.textContent= "Normal";
     normalOption.setAttribute('value', 'Normal');
@@ -144,10 +148,10 @@ const drawFormView = (title, desc, indexPosition, priorityLevel, taskCategory, d
         event.preventDefault();
         let formattedDate = format(new Date(`${dueDateInput.value}T00:00`), 'PP');
         let newTask = new Task (taskName.value, taskDesc.value, formattedDate, taskPriorityField.value, category.value);
-        if (indexPosition != null) {
-            taskList.splice(indexPosition, 1);
-        }
-        addTaskToList(newTask);
+        // if (indexPosition != null) {
+        //     taskList.splice(indexPosition, 1);
+        // }
+        addTaskToList(newTask, docKey);
         clearView();
         drawListView();
     });
