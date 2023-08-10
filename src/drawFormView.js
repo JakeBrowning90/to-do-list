@@ -8,7 +8,7 @@ async function drawFormView(title, desc, indexPosition, priorityLevel, taskCateg
     let taskList = await getTasks(db);
     let docKey = title;
 
-    const content = document.querySelector('#content');
+    const content = document.querySelector('main');
     const taskFormContent = document.createElement('form');
     taskFormContent.classList.add('taskFormContent');
 

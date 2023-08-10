@@ -7,7 +7,7 @@ import { populateList } from "./populateList";
 
 const drawListView = () => {
 
-    const content = document.querySelector('#content');
+    const content = document.querySelector('main');
     const listViewContent = document.createElement('div');
     listViewContent.classList.add('listViewContent');
     const taskListColumn = document.createElement('div');
