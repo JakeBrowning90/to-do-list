@@ -8,8 +8,6 @@
     src: url(fot-rodin-pro-cufonfonts/FOTRodin\ Pro\ M.otf);
 }
 
-/* #pauseScreen  */
-
 html, body {
     font-family: Rodin;
     font-style: italic;
@@ -19,10 +17,7 @@ html, body {
 }
 
 body {
-    /* background-image: url(icelandBG.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat; */
-    background-color: aquamarine;
+    background: linear-gradient(#b5d2f0, #6b7052, #706458);
     color: white;
     accent-color: yellow;
     display: flex;
@@ -55,7 +50,6 @@ button, input, select {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* align-content: center; */
     text-align: center;
 }
 
@@ -141,7 +135,9 @@ main {
 }
 
 .taskCategoryTabs > * {
-    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .displayedTasks {
