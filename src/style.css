@@ -29,6 +29,10 @@ body {
     flex-direction: column;
 }
 
+a, a:visited {
+    color: white;
+}
+
 #addTaskButton {
     font-weight: bold;
     font-style: italic;
@@ -53,6 +57,7 @@ h1 {
 
 button, input, select {
     font-family: Rodin;
+    box-sizing: border-box;
     height: 100%;
     padding: 5px;
     display: flex;
@@ -85,11 +90,15 @@ main {
     max-height: 100%;
     /* margin: 0 50px 0 50px; */
     padding: 20px 50px 20px 50px;
-    grid-column: 2 / -2;
+    /* grid-column: 2 / -2; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.taskFormContent, .listViewContent {
+ margin:auto;
 }
 
 .taskFormContent {
@@ -104,7 +113,7 @@ main {
     box-sizing: border-box;
     height: 100%;
     max-height: 100%;
-    width: 100%; 
+    max-width: 1000px; 
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -122,6 +131,10 @@ main {
     gap: 5px;
     display: flex;
     flex-direction: column;
+}
+
+.taskListColumn > * {
+    /* box-sizing: border-box; */
 }
 
 .taskCategoryTabs{
@@ -188,12 +201,18 @@ main {
 }
 
 .taskDescColumn {
+    max-height: 100%;
     box-sizing: border-box;
     background-color: var(--dark);
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     grid-template-rows: 2fr 1fr 15fr 1fr; 
     padding: 10px;
+}
+
+.taskDescColumn > * {
+    box-sizing: border-box;
+    border: 1px solid black;
 }
 
 .blankDescPlaceholder {
@@ -203,6 +222,7 @@ main {
 .taskDetailName, .taskDetailCategory,  .taskDetailPriority, .taskDetailDueDate {
     display: flex;
     align-items: center;
+    /* box-sizing: border-box; */
     /* overflow: scroll; */
 }
 
@@ -230,7 +250,7 @@ main {
     grid-column: 1 / -1;
     border-bottom: solid var(--light) 2px;
     padding-top: 10px;
-    overflow: scroll
+    /* overflow: scroll; */
 }
 
 .editTaskBtn {
@@ -276,6 +296,7 @@ main {
 
 footer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-end;
 }
