@@ -1,5 +1,5 @@
 //Populates taskDesc column with task details, edit button, and delete button
-import { taskList, updateStorage, toDate, deleteTask } from "./taskFactory";
+import { taskList, updateStorage } from "./taskFactory";
 import { clearView } from "./clearView";
 import { drawListView } from "./drawListView";
 import { drawFormView } from "./drawFormView";
@@ -48,9 +48,9 @@ function fillTaskDesc(title, desc, priority, category, dueDate) {
     deleteTaskBtn.addEventListener("click", function () {
         // Removes current task from array and redraws list view
         console.log("removed!")
-        deleteTask(title);
-        // taskList.splice(indexPosition, 1);
-        // updateStorage();
+        // deleteTask(title);
+        taskList.splice(indexPosition, 1);
+        updateStorage();
         clearView();
         drawListView();
     });
