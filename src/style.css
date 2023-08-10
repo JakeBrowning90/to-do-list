@@ -8,6 +8,11 @@
     src: url(fot-rodin-pro-cufonfonts/FOTRodin\ Pro\ M.otf);
 }
 
+html {
+    background: linear-gradient(#b5d2f0, #6b7052, #706458);
+    background-size: cover;
+}
+
 html, body {
     font-family: Rodin;
     font-style: italic;
@@ -17,7 +22,6 @@ html, body {
 }
 
 body {
-    background: linear-gradient(#b5d2f0, #6b7052, #706458);
     color: white;
     accent-color: yellow;
     display: flex;
@@ -107,6 +111,7 @@ main {
 .listViewContent > * {
     box-sizing: border-box;
     overflow: hidden;
+    height: 100%;
     width: 40vw;
 }
 
@@ -127,7 +132,7 @@ main {
     height: 12.5%;
     max-height: 12.5%;
     width: 100%;
-    border-bottom: solid black 1px;
+    border-bottom: solid black 2px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-self: center;
@@ -138,6 +143,7 @@ main {
     display: flex;
 	justify-content: center;
 	align-items: center;
+    font-weight: bold;
 }
 
 .displayedTasks {
@@ -193,7 +199,7 @@ main {
 }
 
 .taskDescColumn {
-    height: 100%;
+    /* max-height: 90%; */
     box-sizing: border-box;
     background-color: var(--dark);
     display: grid;
@@ -203,10 +209,11 @@ main {
 }
 
 .taskDescColumn > * {
+    display: flex;
     box-sizing: border-box;
-    border: 1px solid black;
-    padding:0; 
-    margin:0;
+    /* border: 1px solid black; */
+    padding: 5px; 
+    /* font-size: 1vw; */
 }
 
 .blankDescPlaceholder {
@@ -214,7 +221,6 @@ main {
 }
 
 .taskDetailName, .taskDetailCategory,  .taskDetailPriority, .taskDetailDueDate {
-    display: flex;
     align-items: center;
     /* box-sizing: border-box; */
     /* overflow: scroll; */
@@ -245,6 +251,10 @@ main {
     border-bottom: solid var(--light) 2px;
     /* padding-top: 10px; */
     /* overflow: scroll; */
+}
+
+.editTaskBtn, .deleteTaskBtn {
+    font-size: 5px;
 }
 
 .editTaskBtn {
