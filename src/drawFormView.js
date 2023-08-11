@@ -107,7 +107,7 @@ async function drawFormView(title, desc, indexPosition, priorityLevel, taskCateg
     const submitNewTaskBtn = document.createElement('input');
     submitNewTaskBtn.setAttribute("type", "submit");
     submitNewTaskBtn.setAttribute("id", "addTask");
-    submitNewTaskBtn.textContent = "Add Task";
+    // submitNewTaskBtn.textContent = "Add Task";
     
     // Cancel new task creation and return to list view
     const cancelNewTaskBtn = document.createElement('button');
