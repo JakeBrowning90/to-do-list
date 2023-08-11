@@ -5,7 +5,7 @@ import { drawListView } from "./drawListView";
 import { drawFormView } from "./drawFormView";
 import { format } from 'date-fns';
 
-function fillTaskDesc(title, desc, priority, category, dueDate) {
+function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     const taskDescColumn = document.querySelector('.taskDescColumn');
 
     //Clear placeholder text
@@ -26,8 +26,8 @@ function fillTaskDesc(title, desc, priority, category, dueDate) {
 
     const taskDetailDueDate = document.createElement('div');
     taskDetailDueDate.classList.add('taskDetailDueDate');
-    //OLD Way: taskDetailDueDate.textContent = dueDate;
-    taskDetailDueDate.textContent = format(new Date(dueDate), 'PP')
+    taskDetailDueDate.textContent = dueDate;
+    // taskDetailDueDate.textContent = format(new Date(dueDate), 'PP');
     
     const taskDetailDescription = document.createElement('div');
     taskDetailDescription.classList.add('taskDetailDescription');
