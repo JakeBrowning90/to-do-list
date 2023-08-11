@@ -35,7 +35,11 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
 
     const editTaskBtn = document.createElement('button');
     editTaskBtn.classList.add('editTaskBtn');
-    editTaskBtn.textContent = "Edit";
+    // editTaskBtn.textContent = "Edit";
+    const editTaskIcon = document.createElement('img');
+    editTaskIcon.setAttribute("src","../src/img/edit.svg")
+    editTaskIcon.setAttribute("alt", "Edit task")
+
     editTaskBtn.addEventListener("click", function () {
         //Brings up "New task form" populated with current task details and position to override old version on submission
         clearView();
@@ -44,10 +48,15 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
 
     const deleteTaskBtn = document.createElement('button');
     deleteTaskBtn.classList.add('deleteTaskBtn');
-    deleteTaskBtn.textContent = "Delete";
+    // deleteTaskBtn.textContent = "Delete";
+
+    const deleteTaskIcon = document.createElement('img');
+    deleteTaskIcon.setAttribute("src","../src/img/delete.svg");
+    deleteTaskIcon.setAttribute("alt", "Delete task");
+
     deleteTaskBtn.addEventListener("click", function () {
         // Removes current task from array and redraws list view
-        console.log("removed!")
+        // console.log("removed!")
         // deleteTask(title);
         taskList.splice(indexPosition, 1);
         updateStorage();
@@ -60,7 +69,9 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     taskDescColumn.appendChild(taskDetailDueDate);
     taskDescColumn.appendChild(taskDetailDescription);
     taskDescColumn.appendChild(editTaskBtn);
+    editTaskBtn.appendChild(editTaskIcon);
     taskDescColumn.appendChild(deleteTaskBtn);
+    deleteTaskBtn.appendChild(deleteTaskIcon);
 }
 
 export { fillTaskDesc };

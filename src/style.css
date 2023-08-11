@@ -32,7 +32,14 @@ a, a:visited {
     color: white;
 }
 
+img {
+    /* justify-self: center; */
+    align-self: center;
+    height: 20px;
+}
+
 #addTaskButton {
+    /* height: 100%; */
     font-weight: bold;
     font-style: italic;
 }
@@ -43,7 +50,7 @@ textarea {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 button, input, select {
@@ -58,7 +65,9 @@ button, input, select {
 }
 
 header, footer {
+    box-sizing: border-box;
     background-color: var(--dark);
+    max-height: 50px;
     padding: 10px;
 }
 
@@ -231,6 +240,7 @@ main {
     border-bottom: solid var(--light) 2px;
     font-weight: bold;
     font-size: 1.3em;
+    padding: 0;
 }
 
 .taskDetailCategory {
