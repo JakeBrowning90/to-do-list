@@ -2,6 +2,8 @@ import { drawListView } from './drawListView';
 import { clearView } from './clearView';
 import { addTaskToList, Task, checkStorage, getTasks, db,setDoc, doc } from './taskFactory';
 import { format } from 'date-fns';
+import CloseIcon from './img/close.svg';
+import SaveIcon from './img/save.svg';
 
 async function drawFormView(title, desc, indexPosition, priorityLevel, taskCategory, dueDate) {
 
@@ -104,15 +106,21 @@ async function drawFormView(title, desc, indexPosition, priorityLevel, taskCateg
     dueDateField.setAttribute("name", "dueDateInput");
 
     // Add new task to list and return to list view
-    const submitNewTaskBtn = document.createElement('input');
+    const submitNewTaskBtn = document.createElement('button');
     submitNewTaskBtn.setAttribute("type", "submit");
     submitNewTaskBtn.setAttribute("id", "addTask");
     // submitNewTaskBtn.textContent = "Add Task";
-    
+    const saveIcon = new Image();
+    saveIcon.src = SaveIcon;
+    submitNewTaskBtn.appendChild(saveIcon);
+
     // Cancel new task creation and return to list view
     const cancelNewTaskBtn = document.createElement('button');
     cancelNewTaskBtn.classList.add('cancelNewTaskBtn');
-    cancelNewTaskBtn.textContent = "Cancel";
+    // cancelNewTaskBtn.textContent = "Cancel";
+    const closeIcon = new Image();
+    closeIcon.src = CloseIcon;
+    cancelNewTaskBtn.appendChild(closeIcon);
     cancelNewTaskBtn.addEventListener("click", function () {
         clearView();
         drawListView();
