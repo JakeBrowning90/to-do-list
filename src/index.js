@@ -42,9 +42,8 @@ if (storageAvailable("localStorage")) {
 //Draw default screen on page load
 drawListView();
 
-//Removes list view and calls form
+//Removes list view and calls form view
 const addTaskButton = document.getElementById('addTaskButton');
-
 const addIcon = new Image();
 addIcon.src = Icon;
 addTaskButton.appendChild(addIcon);

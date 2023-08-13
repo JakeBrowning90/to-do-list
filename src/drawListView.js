@@ -1,9 +1,5 @@
 // Draws layout with list of tasks on left, description of current lest on right
-
 import { populateList } from "./populateList";
-// import { taskList } from "./taskFactory";
-// import { fillTaskDesc } from "./fillTaskDesc";
-// import { clearView } from "./clearView";
 
 const drawListView = () => {
 
@@ -40,13 +36,13 @@ const drawListView = () => {
     hobbyTab.addEventListener("click", function () {
         populateList("Hobby");
     });
-
+    // Draw div for list of all / sorted tasks
     const displayedTasks = document.createElement('div');
     displayedTasks.classList.add('displayedTasks');
 
+    // Draw div for displaying currently focused task
     const taskDescColumn = document.createElement('div');
     taskDescColumn.classList.add('taskDescColumn');
-    //TODO - Style text content in it's own div (maybe change class of taskDescColumn?)
     const blankDescPlaceholder = document.createElement('div');
     blankDescPlaceholder.classList.add('blankDescPlaceholder');
     blankDescPlaceholder.textContent = "Select a task to display details and options";
@@ -62,6 +58,7 @@ const drawListView = () => {
     listViewContent.appendChild(taskDescColumn);
     taskDescColumn.appendChild(blankDescPlaceholder);
     
+    // Fill the displayedTasks div
     populateList();
 }
 

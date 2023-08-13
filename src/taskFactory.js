@@ -1,35 +1,4 @@
-// import { initializeApp } from 'firebase/app';
-// import { getFirestore, collection, doc, getDocs, setDoc, deleteDoc  } from 'firebase/firestore';
-
-// const firebaseApp = initializeApp({
-//   apiKey: "AIzaSyCHxTqQvnTAjl5ooscMWvpQah6OHCMCXJ4",
-//   authDomain: "to-do-list-953be.firebaseapp.com",
-//   projectId: "to-do-list-953be",
-//   storageBucket: "to-do-list-953be.appspot.com",
-//   messagingSenderId: "42011707913",
-//   appId: "1:42011707913:web:1d400cc3a58e78372d86d8",
-//   measurementId: "G-1B2229JLQY"
-// });
-
-// const db = getFirestore(firebaseApp)
-// // db.collection('tasks').getDocs();
-// // const todosCol = collection(db, 'tasks')
-// // getTasks(db)
-
-// async function getTasks(db) {
-//     const tasksCol = collection(db, 'tasks');
-//     const tasksSnapshot = await getDocs(tasksCol);
-//     const taskListDB = tasksSnapshot.docs.map(doc => doc.data());
-//     // console.log(taskListDB)
-//     return taskListDB;
-// }
-
-// async function deleteTask(title) {
-//     await deleteDoc(doc(db, "tasks", title));
-// }
-// let taskList = getTasks(db);
-
-//TODO: completion status?
+//TODO: completion status? (New, In Progress)
 class Task {
     constructor(title, description, dueDate, priorityLevel, taskCategory) {
         this.title = title;
@@ -51,6 +20,7 @@ function checkStorage() {
     }
 }
 
+// TODO: sort taskList by dueDate
 let taskList = checkStorage();
 
 function updateStorage() {
@@ -59,13 +29,6 @@ function updateStorage() {
 
 //Add new task to array, update array in localStorage
 function addTaskToList(Task) {
-    // setDoc(doc(db, "tasks", docKey), {
-    //     title: Task.title,
-    //     description: Task.description,
-    //     dueDate: Task.dueDate,
-    //     priorityLevel: Task.priorityLevel,
-    //     taskCategory: Task.taskCategory,
-    //   });
     taskList.push(Task);
     localStorage.setItem("taskList", JSON.stringify(taskList));
 }

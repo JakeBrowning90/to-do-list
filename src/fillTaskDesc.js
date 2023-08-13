@@ -3,7 +3,6 @@ import { taskList, updateStorage } from "./taskFactory";
 import { clearView } from "./clearView";
 import { drawListView } from "./drawListView";
 import { drawFormView } from "./drawFormView";
-import { format } from 'date-fns';
 import EditIcon from './img/edit.svg';
 import DeleteIcon from './img/delete.svg';
 
@@ -16,7 +15,6 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
         taskDescColumn.removeChild(taskDescColumn.lastChild);
     }
 
-    //taskDescColumn.textContent = null;
     const taskDetailName = document.createElement('div');
     taskDetailName.classList.add('taskDetailName');
     taskDetailName.textContent = title;
@@ -30,7 +28,6 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     const taskDetailDueDate = document.createElement('div');
     taskDetailDueDate.classList.add('taskDetailDueDate');
     taskDetailDueDate.textContent = dueDate;
-    // taskDetailDueDate.textContent = format(new Date(dueDate), 'PP');
     
     const taskDetailDescription = document.createElement('div');
     taskDetailDescription.classList.add('taskDetailDescription');
@@ -38,10 +35,6 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
 
     const editTaskBtn = document.createElement('button');
     editTaskBtn.classList.add('editTaskBtn');
-    // editTaskBtn.textContent = "Edit";
-    // const editTaskIcon = document.createElement('img');
-    // editTaskIcon.setAttribute("src","../src/img/edit.svg")
-    // editTaskIcon.setAttribute("alt", "Edit task")
     const editIcon = new Image();
     editIcon.src = EditIcon;
     editTaskBtn.appendChild(editIcon);
@@ -54,11 +47,6 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
 
     const deleteTaskBtn = document.createElement('button');
     deleteTaskBtn.classList.add('deleteTaskBtn');
-    // deleteTaskBtn.textContent = "Delete";
-
-    // const deleteTaskIcon = document.createElement('img');
-    // deleteTaskIcon.setAttribute("src","../src/img/delete.svg");
-    // deleteTaskIcon.setAttribute("alt", "Delete task");
     const deleteIcon = new Image();
     deleteIcon.src = DeleteIcon;
     deleteTaskBtn.appendChild(deleteIcon);
@@ -66,7 +54,6 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     deleteTaskBtn.addEventListener("click", function () {
         // Removes current task from array and redraws list view
         // console.log("removed!")
-        // deleteTask(title);
         taskList.splice(indexPosition, 1);
         updateStorage();
         clearView();
@@ -78,9 +65,7 @@ function fillTaskDesc(title, desc, priority, category, dueDate, indexPosition) {
     taskDescColumn.appendChild(taskDetailDueDate);
     taskDescColumn.appendChild(taskDetailDescription);
     taskDescColumn.appendChild(editTaskBtn);
-    // editTaskBtn.appendChild(editTaskIcon);
     taskDescColumn.appendChild(deleteTaskBtn);
-    // deleteTaskBtn.appendChild(deleteTaskIcon);
 }
 
 export { fillTaskDesc };

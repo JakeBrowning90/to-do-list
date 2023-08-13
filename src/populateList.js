@@ -1,10 +1,10 @@
 // Reads array of tasks and creates a div for each one
 
-import {  checkStorage } from "./taskFactory";
+import { checkStorage } from "./taskFactory";
 import { fillTaskDesc } from "./fillTaskDesc";
 import { format } from 'date-fns';
 
-//Fill list view using taskList Array
+//Fill list view using taskList Array, either all or with category from tabs
 function populateList(category) {
     const displayedTasks = document.querySelector('.displayedTasks');
 
@@ -13,7 +13,6 @@ function populateList(category) {
     }
     //Get current taskList from localStorage
     let taskList = checkStorage();
-    // let taskList = await getTasks(db);
         // Gets all tasks 
         if (category == null) {
             for (const task in taskList) {
@@ -43,13 +42,9 @@ function populateList(category) {
                 taskRow.appendChild(taskRowSelectMark);
                 taskRowSelectMark.appendChild(selectionRadio);
 
+                // On click, send current task's details to fillTaskDesc function
                 taskRow.addEventListener("click", function () {
                     fillTaskDesc(taskList[task].title, taskList[task].description, taskList[task].priorityLevel, taskList[task].taskCategory, taskList[task].dueDate);
-                    //TODO: function to change class of taskRowSelectMark, make current row YELLOW
-                    // let unselectedTasks = document.querySelectorAll('taskRowDefaultMark');
-                    // console.log(unselectedTasks);
-                    // unselectedTasks.classList.remove('taskRowCurrentMark');
-                    // taskRowSelectMark.classList.add('taskRowCurrentMark');
                 });
                 
                 taskRadioSpan.appendChild(taskRow);
